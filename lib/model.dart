@@ -137,166 +137,166 @@ class _HealthMetricsScreenState extends State<HealthMetricsScreen>
         title: const Text('Health Metrics Calculator'),
         backgroundColor: Colors.green,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              FadeTransition(
-                opacity: _animation,
-                child: Image.asset(
-                  "images/min-football.png",
-                  height: 100,
-                  width: 100,
-                ),
-              ),
-              IconButton(
-                icon: const Icon(
-                  Icons.arrow_right_alt_outlined,
-                  color: Colors.green,
-                  size: 70,
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const ills()),
-                  );
-                },
-              ),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+      body: Stack(
+        children: [
+          Positioned.fill(
+            child: Image.asset(
+              'images/background111.png',
+              fit: BoxFit.cover,
+            ),
+          ),
+          SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
                 children: [
-                  Column(
+                  FadeTransition(
+                    opacity: _animation,
+                    child: Image.asset(
+                      "images/min-football.png",
+                      height: 100,
+                      width: 100,
+                    ),
+                  ),
+                  IconButton(
+                    icon: const Icon(
+                      Icons.arrow_right_alt_outlined,
+                      color: Colors.green,
+                      size: 70,
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const ills()),
+                      );
+                    },
+                  ),
+                  const Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        "KEEP  IN IDEAL WEIGHT",
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.normal,
-                          color: Colors.green,
-                        ),
+                      Column(
+                        children: [
+                          Text(
+                            "KEEP  IN IDEAL WEIGHT",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.normal,
+                              color: Colors.green,
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
+                  const SizedBox(height: 20),
+                  _buildCustomTextField(
+                    controller: ageController,
+                    hintText: 'Age',
+                    icon: Icons.cake,
+                  ),
+                  const SizedBox(height: 16),
+                  _buildCustomDropdown(
+                    hint: "Gender",
+                    value: selectedGender,
+                    items: ["Male", "Female"],
+                    onChanged: (val) {
+                      setState(() {
+                        selectedGender = val;
+                      });
+                    },
+                  ),
+                  const SizedBox(height: 16),
+                  _buildCustomDropdown(
+                    hint: "Activity Level",
+                    value: selectedActivity,
+                    items: ["Low", "Medium", "High"],
+                    onChanged: (val) {
+                      setState(() {
+                        selectedActivity = val;
+                      });
+                    },
+                  ),
+                  const SizedBox(height: 16),
+                  _buildCustomTextField(
+                    controller: weightController,
+                    hintText: 'Weight (Kg)',
+                    icon: Icons.line_weight,
+                  ),
+                  const SizedBox(height: 16),
+                  _buildCustomTextField(
+                    controller: heightController,
+                    hintText: 'Height (m)',
+                    icon: Icons.height,
+                  ),
+                  const SizedBox(height: 20),
+                  ElevatedButton(
+                    onPressed: _calculateMetrics,
+                    style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.white, // Text color
+                      backgroundColor: Colors.green, // Background color
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 30, vertical: 10), // Padding
+                      shape: RoundedRectangleBorder(
+                        borderRadius:
+                            BorderRadius.circular(30.0), // Rounded corners
+                      ),
+                    ),
+                    child: isCalculating
+                        ? const CircularProgressIndicator(
+                            valueColor:
+                                AlwaysStoppedAnimation<Color>(Colors.white),
+                          )
+                        : const Text(
+                            'Calculate BMI & BMR & Calories',
+                            style: TextStyle(fontSize: 18),
+                          ),
+                  ),
+                  const SizedBox(height: 20),
+                  if (showResults) ...[
+                    _buildResultCard(
+                      title: 'BMI',
+                      value: bmiController.text,
+                    ),
+                    const SizedBox(height: 16),
+                    _buildResultCard(
+                      title: 'BMR',
+                      value: bmrController.text,
+                    ),
+                    const SizedBox(height: 16),
+                    _buildResultCard(
+                      title: 'Recommended Calories',
+                      value: calorieController.text,
+                    ),
+                    const SizedBox(height: 20),
+                    MaterialButton(
+                      color: Colors.green,
+                      textColor: Colors.white,
+                      minWidth: 300,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => FoodPlanPage(
+                              recommendedCalories: recommendedCalories,
+                            ),
+                          ),
+                        );
+                      },
+                      child: const Text(
+                        "Your Plan",
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                  ],
                 ],
               ),
-              const SizedBox(height: 20),
-              _buildCustomTextField(
-                controller: ageController,
-                hintText: 'Age',
-                icon: Icons.cake,
-              ),
-              const SizedBox(height: 16),
-              _buildCustomDropdown(
-                hint: "Gender",
-                value: selectedGender,
-                items: ["Male", "Female"],
-                onChanged: (val) {
-                  setState(() {
-                    selectedGender = val;
-                  });
-                },
-              ),
-              const SizedBox(height: 16),
-              _buildCustomDropdown(
-                hint: "Activity Level",
-                value: selectedActivity,
-                items: ["Low", "Medium", "High"],
-                onChanged: (val) {
-                  setState(() {
-                    selectedActivity = val;
-                  });
-                },
-              ),
-              const SizedBox(height: 16),
-              _buildCustomTextField(
-                controller: weightController,
-                hintText: 'Weight (Kg)',
-                icon: Icons.line_weight,
-              ),
-              const SizedBox(height: 16),
-              _buildCustomTextField(
-                controller: heightController,
-                hintText: 'Height (m)',
-                icon: Icons.height,
-              ),
-              const SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: _calculateMetrics,
-                style: ElevatedButton.styleFrom(
-                  foregroundColor: Colors.white, // Text color
-                  backgroundColor: Colors.green, // Background color
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 30, vertical: 10), // Padding
-                  shape: RoundedRectangleBorder(
-                    borderRadius:
-                        BorderRadius.circular(30.0), // Rounded corners
-                  ),
-                ),
-                child: isCalculating
-                    ? const CircularProgressIndicator(
-                        valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-                      )
-                    : const Text(
-                        'Calculate BMI & BMR & Calories',
-                        style: TextStyle(fontSize: 18),
-                      ),
-              ),
-              const SizedBox(height: 20),
-              if (showResults) ...[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Expanded(
-                      child: _buildResultCard(
-                        title: 'BMI',
-                        value: bmiController.text,
-                      ),
-                    ),
-                    const SizedBox(width: 16),
-                    Expanded(
-                      child: _buildResultCard(
-                        title: 'BMR',
-                        value: bmrController.text,
-                      ),
-                    ),
-                    const SizedBox(width: 16),
-                    Expanded(
-                      child: _buildResultCard(
-                        title: 'Recommended Calories',
-                        value: calorieController.text,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 20),
-                MaterialButton(
-                  color: Colors.green,
-                  textColor: Colors.white,
-                  minWidth: 300,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => FoodPlanPage(
-                          recommendedCalories: recommendedCalories,
-                        ),
-                      ),
-                    );
-                  },
-                  child: const Text(
-                    "Your Plan",
-                    style: TextStyle(fontSize: 20),
-                  ),
-                ),
-                const SizedBox(height: 20),
-              ],
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
@@ -359,37 +359,29 @@ class _HealthMetricsScreenState extends State<HealthMetricsScreen>
     required String title,
     required String value,
   }) {
-    return SizedBox(
-      width: double.infinity,
-      child: Card(
-        elevation: 3,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                title,
-                style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.green,
-                ),
+    return Card(
+      elevation: 3,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              title,
+              style: const TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
               ),
-              const SizedBox(height: 8),
-              Text(
-                value,
-                style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
-              ),
-            ],
-          ),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              value,
+              style: const TextStyle(fontSize: 16),
+            ),
+          ],
         ),
       ),
     );

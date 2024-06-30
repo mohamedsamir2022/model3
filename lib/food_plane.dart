@@ -243,38 +243,57 @@ class _FoodPlanPageState extends State<FoodPlanPage> {
         title: const Row(
           children: [
             Icon(Icons.restaurant_menu),
+            SizedBox(width: 10),
             Text("Recommended Plan"),
           ],
         ),
         backgroundColor: Colors.green,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Your recommended daily calorie is ${widget.recommendedCalories.toStringAsFixed(2)} calories.",
-              style: const TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: Colors.green,
+      body: Stack(
+        children: [
+          Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("images/R (1).png"),
+                fit: BoxFit.cover,
               ),
             ),
-            const SizedBox(height: 5),
-            const Text(
-              "Recommended Food Plan:",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+          Container(
+            color: Colors.black.withOpacity(0.3),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Your recommended daily calorie intake is ${widget.recommendedCalories.toStringAsFixed(2)} calories.",
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                const SizedBox(height: 5),
+                const Text(
+                  "Recommended Food Plan:",
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                ),
+                const SizedBox(height: 10),
+                Expanded(
+                  child: ListView(
+                    children: _generateFoodPlan(),
+                  ),
+                ),
+                _calorieSummaryCard(widget.recommendedCalories - totalCalories),
+              ],
             ),
-            const SizedBox(height: 10),
-            Expanded(
-              child: ListView(
-                children: _generateFoodPlan(),
-              ),
-            ),
-            _calorieSummaryCard(widget.recommendedCalories - totalCalories),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -304,7 +323,8 @@ class _FoodPlanPageState extends State<FoodPlanPage> {
           borderRadius: BorderRadius.circular(15.0),
         ),
         child: ListTile(
-          contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+          contentPadding:
+              const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
           tileColor: isSelected ? Colors.green[50] : Colors.white,
           title: Text(
             meal['meal'],

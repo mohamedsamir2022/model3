@@ -1,5 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:project_machine/DietSection.dart';
 
 class DiabetesPage extends StatefulWidget {
@@ -93,22 +94,25 @@ class _DiabetesPageState extends State<DiabetesPage> {
             Row(
               children: [
                 Image.asset(
-                  "../images/nutes-removebg-preview.png",
-                  height: 100,
+                  "images/nutes-removebg-preview.png",
+                  height: 70,
+                  width: 80,
                 ),
                 const SizedBox(
                   width: 20,
                 ),
                 Image.asset(
-                  "../images/toast-removebg-preview.png",
-                  height: 100,
+                  "images/toast-removebg-preview.png",
+                  height: 70,
+                  width: 80,
                 ),
                 const SizedBox(
                   width: 20,
                 ),
                 Image.asset(
-                  "../images/urgent-removebg-preview.png",
-                  height: 100,
+                  "images/urgent-removebg-preview.png",
+                  height: 70,
+                  width: 80,
                 ),
               ],
             ),
@@ -124,22 +128,25 @@ class _DiabetesPageState extends State<DiabetesPage> {
             Row(
               children: [
                 Image.asset(
-                  "../images/grilled_chicken-removebg-preview.png",
-                  height: 100,
+                  "images/grilled_chicken-removebg-preview.png",
+                  height: 70,
+                  width: 80,
                 ),
                 const SizedBox(
                   width: 20,
                 ),
                 Image.asset(
-                  "../images/DSC_0276-removebg-preview.png",
-                  height: 100,
+                  "images/DSC_0276-removebg-preview.png",
+                  height: 70,
+                  width: 80,
                 ),
                 const SizedBox(
                   width: 20,
                 ),
                 Image.asset(
-                  "../images/vegetable-curry-with-rice-removebg-preview.png",
-                  height: 100,
+                  "images/vegetable-curry-with-rice-removebg-preview.png",
+                  height: 70,
+                  width: 80,
                 ),
               ],
             ),
@@ -155,22 +162,25 @@ class _DiabetesPageState extends State<DiabetesPage> {
             Row(
               children: [
                 Image.asset(
-                  "../images/salamon-removebg-preview.png",
-                  height: 100,
+                  "images/salamon-removebg-preview.png",
+                  height: 70,
+                  width: 80,
                 ),
                 const SizedBox(
                   width: 20,
                 ),
                 Image.asset(
-                  "../images/Sheet-Pan-Tofu-and-Broccoli-Teriyaki-removebg-preview.png",
-                  height: 100,
+                  "images/Sheet-Pan-Tofu-and-Broccoli-Teriyaki-removebg-preview.png",
+                  height: 70,
+                  width: 80,
                 ),
                 const SizedBox(
                   width: 20,
                 ),
                 Image.asset(
-                  "../images/curry.png",
-                  height: 100,
+                  "images/curry.png",
+                  height: 70,
+                  width: 80,
                 ),
               ],
             ),
@@ -200,14 +210,12 @@ class _DiabetesPageState extends State<DiabetesPage> {
               displayFullTextOnTap: true,
               stopPauseOnTap: false,
             ),
-            Padding(
-              padding: const EdgeInsets.all(20),
-              child: Image.asset(
-                "../images/dietplane-removebg-preview.png",
-                height: 500,
+              Image.asset(
+                "images/dietplane-removebg-preview.png",
+                height: 800,
                 width: 650,
               ),
-            ),
+            
           ],
         ),
       ),
