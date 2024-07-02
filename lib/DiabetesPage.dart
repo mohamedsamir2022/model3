@@ -64,160 +64,179 @@ class _DiabetesPageState extends State<DiabetesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Diabetes Diet Plan'),
+        title: const Text('خطة غذائيه لمرضي السكري'),
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _buildUserInformationInput(),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: calculateAndSetRecommendedCalories,
-              child: const Text('Calculate Recommended Calories'),
+      body: Stack(
+        children: [
+          Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(
+                    'images/background111.png'), // Path to your background image
+                fit: BoxFit.cover,
+              ),
             ),
-            const SizedBox(height: 20),
-            if (recommendedCalories != null) ...[
-              _buildCalorieTracker(),
-              const SizedBox(height: 20),
-            ],
-            DietSection(
-              meal: 'Breakfast',
-              items: [
-                DietItem('Oatmeal with fresh fruits and nuts', 150),
-                DietItem('Whole grain toast with avocado', 120),
-                DietItem('Low-fat yogurt with berries', 100),
-              ],
-              addCalories: addCalories,
-            ),
-            Row(
+          ),
+          SingleChildScrollView(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Image.asset(
-                  "images/nutes-removebg-preview.png",
-                  height: 70,
-                  width: 80,
-                ),
-                const SizedBox(
-                  width: 20,
-                ),
-                Image.asset(
-                  "images/toast-removebg-preview.png",
-                  height: 70,
-                  width: 80,
-                ),
-                const SizedBox(
-                  width: 20,
-                ),
-                Image.asset(
-                  "images/urgent-removebg-preview.png",
-                  height: 70,
-                  width: 80,
-                ),
-              ],
-            ),
-            DietSection(
-              meal: 'Lunch',
-              items: [
-                DietItem('Grilled chicken salad with mixed greens', 300),
-                DietItem('Quinoa and vegetable stir-fry', 350),
-                DietItem('Lentil soup with whole grain bread', 250),
-              ],
-              addCalories: addCalories,
-            ),
-            Row(
-              children: [
-                Image.asset(
-                  "images/grilled_chicken-removebg-preview.png",
-                  height: 70,
-                  width: 80,
-                ),
-                const SizedBox(
-                  width: 20,
-                ),
-                Image.asset(
-                  "images/DSC_0276-removebg-preview.png",
-                  height: 70,
-                  width: 80,
-                ),
-                const SizedBox(
-                  width: 20,
-                ),
-                Image.asset(
-                  "images/vegetable-curry-with-rice-removebg-preview.png",
-                  height: 70,
-                  width: 80,
-                ),
-              ],
-            ),
-            DietSection(
-              meal: 'Dinner',
-              items: [
-                DietItem('Baked salmon with steamed vegetables', 400),
-                DietItem('Brown rice with grilled tofu and broccoli', 350),
-                DietItem('Vegetable curry with whole grain rice', 300),
-              ],
-              addCalories: addCalories,
-            ),
-            Row(
-              children: [
-                Image.asset(
-                  "images/salamon-removebg-preview.png",
-                  height: 70,
-                  width: 80,
-                ),
-                const SizedBox(
-                  width: 20,
-                ),
-                Image.asset(
-                  "images/Sheet-Pan-Tofu-and-Broccoli-Teriyaki-removebg-preview.png",
-                  height: 70,
-                  width: 80,
-                ),
-                const SizedBox(
-                  width: 20,
-                ),
-                Image.asset(
-                  "images/curry.png",
-                  height: 70,
-                  width: 80,
-                ),
-              ],
-            ),
-            DietSection(
-              meal: 'Snacks',
-              items: [
-                DietItem('Fresh fruit', 50),
-                DietItem('Nuts and seeds', 100),
-                DietItem('Vegetable sticks with hummus', 80),
-                DietItem('Low-fat cheese', 70),
-              ],
-              addCalories: addCalories,
-            ),
-            AnimatedTextKit(
-              animatedTexts: [
-                TypewriterAnimatedText(
-                  'You can follow these diet plane instead',
-                  speed: const Duration(milliseconds: 150),
-                  textStyle: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
+                _buildUserInformationInput(),
+                const SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: calculateAndSetRecommendedCalories,
+                  child: const Text(
+                    'اضغط',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green,
+                    textStyle: const TextStyle(fontSize: 18),
                   ),
                 ),
+                const SizedBox(height: 20),
+                if (recommendedCalories != null) ...[
+                  _buildCalorieTracker(),
+                  const SizedBox(height: 20),
+                ],
+                DietSection(
+                  meal: 'الإفطار',
+                  items: [
+                    DietItem('الشوفان مع الفواكه الطازجة والمكسرات', 150),
+                    DietItem('خبز القمح الكامل مع الأفوكادو', 120),
+                    DietItem('زبادي قليل الدسم مع التوت', 100),
+                  ],
+                  addCalories: addCalories,
+                ),
+                Row(
+                  children: [
+                    Image.asset(
+                      "images/nutes-removebg-preview.png",
+                      height: 70,
+                      width: 80,
+                    ),
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    Image.asset(
+                      "images/toast-removebg-preview.png",
+                      height: 70,
+                      width: 80,
+                    ),
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    Image.asset(
+                      "images/urgent-removebg-preview.png",
+                      height: 70,
+                      width: 80,
+                    ),
+                  ],
+                ),
+                DietSection(
+                  meal: 'الغداء',
+                  items: [
+                    DietItem('سلطة الدجاج المشوي مع الخضروات المشكلة', 300),
+                    DietItem('الكينوا مع الخضار المقلي', 350),
+                    DietItem(' العدس مع خبز القمح الكامل', 250),
+                  ],
+                  addCalories: addCalories,
+                ),
+                Row(
+                  children: [
+                    Image.asset(
+                      "images/grilled_chicken-removebg-preview.png",
+                      height: 70,
+                      width: 80,
+                    ),
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    Image.asset(
+                      "images/DSC_0276-removebg-preview.png",
+                      height: 70,
+                      width: 80,
+                    ),
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    Image.asset(
+                      "images/vegetable-curry-with-rice-removebg-preview.png",
+                      height: 70,
+                      width: 80,
+                    ),
+                  ],
+                ),
+                DietSection(
+                  meal: 'العشاء',
+                  items: [
+                    DietItem('السلمون المشوي مع الخضروات المطبوخة', 400),
+                    DietItem('الأرز البني مع البروكلي', 350),
+                    DietItem('الكاري  مع الأرز البني', 300),
+                  ],
+                  addCalories: addCalories,
+                ),
+                Row(
+                  children: [
+                    Image.asset(
+                      "images/salamon-removebg-preview.png",
+                      height: 70,
+                      width: 80,
+                    ),
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    Image.asset(
+                      "images/Sheet-Pan-Tofu-and-Broccoli-Teriyaki-removebg-preview.png",
+                      height: 70,
+                      width: 80,
+                    ),
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    Image.asset(
+                      "images/curry.png",
+                      height: 70,
+                      width: 80,
+                    ),
+                  ],
+                ),
+                DietSection(
+                  meal: 'الوجبات الخفيفة',
+                  items: [
+                    DietItem('الفواكه الطازجة', 50),
+                    DietItem('المكسرات والبذور', 100),
+                    DietItem(' الخضراوات مع الحمص', 80),
+                    DietItem('الجبن قليل الدسم', 70),
+                  ],
+                  addCalories: addCalories,
+                ),
+                AnimatedTextKit(
+                  animatedTexts: [
+                    TypewriterAnimatedText(
+                      'يمكنك اتباع هذه الخطة الغذائية بدلاً من ذلك',
+                      speed: const Duration(milliseconds: 150),
+                      textStyle: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                  isRepeatingAnimation: true,
+                  repeatForever: true,
+                  displayFullTextOnTap: true,
+                  stopPauseOnTap: false,
+                ),
+                Image.asset(
+                  "images/dietplane-removebg-preview.png",
+                  height: 800,
+                  width: 650,
+                ),
               ],
-              isRepeatingAnimation: true,
-              repeatForever: true,
-              displayFullTextOnTap: true,
-              stopPauseOnTap: false,
             ),
-              Image.asset(
-                "images/dietplane-removebg-preview.png",
-                height: 800,
-                width: 650,
-              ),
-            
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -227,7 +246,7 @@ class _DiabetesPageState extends State<DiabetesPage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Text(
-          'Enter Your Information:',
+          'أدخل معلوماتك:',
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 10),
@@ -243,7 +262,7 @@ class _DiabetesPageState extends State<DiabetesPage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Text(
-          'Age:',
+          'العمر:',
           style: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
@@ -264,18 +283,18 @@ class _DiabetesPageState extends State<DiabetesPage> {
               });
             },
             decoration: const InputDecoration(
-              hintText: 'Enter your age',
+              hintText: 'أدخل عمرك',
               contentPadding:
                   EdgeInsets.symmetric(horizontal: 16, vertical: 12),
               border: InputBorder.none,
             ),
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Please enter your age';
+                return 'يرجى إدخال عمرك';
               }
               int age = int.tryParse(value)!;
               if (age < 0 || age > 120) {
-                return 'Please enter a valid age';
+                return 'يرجى إدخال عمر صالح';
               }
               return null;
             },
@@ -290,7 +309,7 @@ class _DiabetesPageState extends State<DiabetesPage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Text(
-          'Gender:',
+          'الجنس:',
           style: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
@@ -310,7 +329,7 @@ class _DiabetesPageState extends State<DiabetesPage> {
                 userGender = value;
               });
             },
-            items: ['Male', 'Female']
+            items: ['ذكر', 'أنثى']
                 .map((String value) => DropdownMenuItem<String>(
                       value: value,
                       child: Text(value),
@@ -337,11 +356,11 @@ class _DiabetesPageState extends State<DiabetesPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
-              'Recommended Daily Calories:',
+              'السعرات الحرارية اليومية الموصى بها:',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             Text(
-              '${recommendedCalories ?? 0} kcal',
+              '${recommendedCalories ?? 0} سعر حراري',
               style: const TextStyle(fontSize: 18, color: Colors.blue),
             ),
             const SizedBox(height: 10),
@@ -351,11 +370,11 @@ class _DiabetesPageState extends State<DiabetesPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text(
-                  'Total Calories Today:',
+                  'إجمالي السعرات اليوم:',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  '$totalCalories kcal',
+                  '$totalCalories سعر حراري',
                   style: TextStyle(
                       fontSize: 18,
                       color: totalCalories <= recommendedCalories!

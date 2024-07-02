@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:project_machine/food_plane.dart';
 import 'package:project_machine/ills.dart';
 
@@ -10,6 +11,15 @@ class Model extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: HealthMetricsScreen(),
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: [
+        Locale('ar', ''), // Arabic, no country code
+      ],
+      locale: Locale('ar'),
     );
   }
 }
@@ -80,7 +90,7 @@ class _HealthMetricsScreenState extends State<HealthMetricsScreen>
           selectedActivity != null) {
         final double bmi = weight / (height * height);
         double bmr;
-        if (selectedGender == "Male") {
+        if (selectedGender == "ذكر") {
           bmr = 10 * weight + 6.25 * (height * 100) - 5 * age + 5;
         } else {
           bmr = 10 * weight + 6.25 * (height * 100) - 5 * age - 161;
@@ -88,13 +98,13 @@ class _HealthMetricsScreenState extends State<HealthMetricsScreen>
 
         double calorieIntake;
         switch (selectedActivity) {
-          case "Low":
+          case "منخفض":
             calorieIntake = bmr * 1.2;
             break;
-          case "Medium":
+          case "متوسط":
             calorieIntake = bmr * 1.55;
             break;
-          case "High":
+          case "عالي":
             calorieIntake = bmr * 1.725;
             break;
           default:
@@ -112,7 +122,7 @@ class _HealthMetricsScreenState extends State<HealthMetricsScreen>
 
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            content: Text('Calculation successful!'),
+            content: Text('تم الحساب بنجاح!'),
             backgroundColor: Colors.green,
           ),
         );
@@ -122,7 +132,7 @@ class _HealthMetricsScreenState extends State<HealthMetricsScreen>
         });
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            content: Text('Please enter valid values for all fields.'),
+            content: Text('يرجى إدخال قيم صالحة لجميع الحقول.'),
             backgroundColor: Colors.red,
           ),
         );
@@ -133,10 +143,6 @@ class _HealthMetricsScreenState extends State<HealthMetricsScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Health Metrics Calculator'),
-        backgroundColor: Colors.green,
-      ),
       body: Stack(
         children: [
           Positioned.fill(
@@ -177,7 +183,7 @@ class _HealthMetricsScreenState extends State<HealthMetricsScreen>
                       Column(
                         children: [
                           Text(
-                            "KEEP  IN IDEAL WEIGHT",
+                            "حافظ على وزنك المثالي",
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.normal,
@@ -191,14 +197,14 @@ class _HealthMetricsScreenState extends State<HealthMetricsScreen>
                   const SizedBox(height: 20),
                   _buildCustomTextField(
                     controller: ageController,
-                    hintText: 'Age',
+                    hintText: 'العمر',
                     icon: Icons.cake,
                   ),
                   const SizedBox(height: 16),
                   _buildCustomDropdown(
-                    hint: "Gender",
+                    hint: "الجنس",
                     value: selectedGender,
-                    items: ["Male", "Female"],
+                    items: ["ذكر", "أنثى"],
                     onChanged: (val) {
                       setState(() {
                         selectedGender = val;
@@ -207,9 +213,9 @@ class _HealthMetricsScreenState extends State<HealthMetricsScreen>
                   ),
                   const SizedBox(height: 16),
                   _buildCustomDropdown(
-                    hint: "Activity Level",
+                    hint: "مستوى النشاط",
                     value: selectedActivity,
-                    items: ["Low", "Medium", "High"],
+                    items: ["منخفض", "متوسط", "عالي"],
                     onChanged: (val) {
                       setState(() {
                         selectedActivity = val;
@@ -219,13 +225,13 @@ class _HealthMetricsScreenState extends State<HealthMetricsScreen>
                   const SizedBox(height: 16),
                   _buildCustomTextField(
                     controller: weightController,
-                    hintText: 'Weight (Kg)',
+                    hintText: 'الوزن (كجم)',
                     icon: Icons.line_weight,
                   ),
                   const SizedBox(height: 16),
                   _buildCustomTextField(
                     controller: heightController,
-                    hintText: 'Height (m)',
+                    hintText: 'الطول (م)',
                     icon: Icons.height,
                   ),
                   const SizedBox(height: 20),
@@ -247,24 +253,24 @@ class _HealthMetricsScreenState extends State<HealthMetricsScreen>
                                 AlwaysStoppedAnimation<Color>(Colors.white),
                           )
                         : const Text(
-                            'Calculate BMI & BMR & Calories',
+                            'احسب مؤشر كتلة الجسم و معدل الايض الاساسي والسعرات الحرارية',
                             style: TextStyle(fontSize: 18),
                           ),
                   ),
                   const SizedBox(height: 20),
                   if (showResults) ...[
                     _buildResultCard(
-                      title: 'BMI',
+                      title: 'مؤشر كتلة الجسم',
                       value: bmiController.text,
                     ),
                     const SizedBox(height: 16),
                     _buildResultCard(
-                      title: 'BMR',
+                      title: 'معدل الايض الأساسي',
                       value: bmrController.text,
                     ),
                     const SizedBox(height: 16),
                     _buildResultCard(
-                      title: 'Recommended Calories',
+                      title: 'السعرات الحرارية الموصى بها',
                       value: calorieController.text,
                     ),
                     const SizedBox(height: 20),
@@ -286,7 +292,7 @@ class _HealthMetricsScreenState extends State<HealthMetricsScreen>
                         );
                       },
                       child: const Text(
-                        "Your Plan",
+                        "خطتك الغذائية",
                         style: TextStyle(fontSize: 20),
                       ),
                     ),
@@ -315,9 +321,11 @@ class _HealthMetricsScreenState extends State<HealthMetricsScreen>
         leading: Icon(icon, color: Colors.green),
         title: TextField(
           controller: controller,
+          textDirection: TextDirection.rtl,
           keyboardType: TextInputType.number,
           decoration: InputDecoration(
             hintText: hintText,
+            hintTextDirection: TextDirection.rtl,
             border: InputBorder.none,
           ),
         ),
@@ -340,12 +348,12 @@ class _HealthMetricsScreenState extends State<HealthMetricsScreen>
         leading: const Icon(Icons.arrow_drop_down, color: Colors.green),
         title: DropdownButtonHideUnderline(
           child: DropdownButton<String>(
-            hint: Text(hint),
+            hint: Text(hint, textDirection: TextDirection.rtl),
             value: value,
             items: items
                 .map((e) => DropdownMenuItem(
                       value: e,
-                      child: Text(e),
+                      child: Text(e, textDirection: TextDirection.rtl),
                     ))
                 .toList(),
             onChanged: onChanged,
@@ -375,11 +383,13 @@ class _HealthMetricsScreenState extends State<HealthMetricsScreen>
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
+              textDirection: TextDirection.rtl,
             ),
             const SizedBox(height: 8),
             Text(
               value,
               style: const TextStyle(fontSize: 16),
+              textDirection: TextDirection.rtl,
             ),
           ],
         ),

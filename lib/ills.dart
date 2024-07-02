@@ -12,7 +12,7 @@ class ills extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Choose Your Illness'),
+        title: const Text('اختر مرضك'),
       ),
       body: Stack(
         children: [
@@ -32,7 +32,7 @@ class ills extends StatelessWidget {
                 AnimatedTextKit(
                   animatedTexts: [
                     TypewriterAnimatedText(
-                      'Choose the disease you suffer from',
+                      'اختر المرض الذي تعاني منه',
                       speed: const Duration(milliseconds: 150),
                       textStyle: const TextStyle(
                         fontSize: 30,
@@ -62,8 +62,9 @@ class ills extends StatelessWidget {
                     textStyle: const TextStyle(fontSize: 18),
                   ),
                   child: const Text(
-                    'Diabetes',
+                    'السكري',
                     style: TextStyle(color: Colors.white),
+                    textDirection: TextDirection.rtl,
                   ),
                 ),
                 const SizedBox(height: 20),
@@ -82,8 +83,9 @@ class ills extends StatelessWidget {
                     textStyle: const TextStyle(fontSize: 18),
                   ),
                   child: const Text(
-                    'High Blood Pressure',
+                    'ضغط الدم المرتفع',
                     style: TextStyle(color: Colors.white),
+                    textDirection: TextDirection.rtl,
                   ),
                 ),
               ],

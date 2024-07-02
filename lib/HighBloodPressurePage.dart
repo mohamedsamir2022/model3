@@ -7,7 +7,7 @@ class BloodPressureDietPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('High Blood Pressure Diet Plan'),
+        title: const Text('خطة غذائيه لمرضي ارتفاع ضغط الدم'),
         backgroundColor: Colors.green,
       ),
       body: SingleChildScrollView(
@@ -31,61 +31,50 @@ class BloodPressureDietPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
-              Center(
-                child: Text(
-                  'Diet Plan for High Blood Pressure',
-                  style: TextStyle(
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.green[800],
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ),
               const SizedBox(height: 10),
               Text(
-                'Here is a recommended diet plan to help manage high blood pressure:',
+                'إليك خطة غذائيه موصى بها للمساعدة في إدارة ارتفاع ضغط الدم:',
                 style: TextStyle(fontSize: 18, color: Colors.grey[700]),
               ),
               const SizedBox(height: 20),
               _buildDietItem(
-                'Fruits and Vegetables',
-                'Eat a variety of fruits and vegetables every day. Aim for at least 5 servings.',
+                'الفواكه والخضروات',
+                'تناول مجموعة متنوعة من الفواكه والخضروات كل يوم. اهدف إلى تناول ما لا يقل عن 5 حصص.',
                 'images/R (1).png',
               ),
               _buildDietItem(
-                'Whole Grains',
-                'Choose whole grain options like brown rice, oats, and whole wheat bread.',
+                'الحبوب الكاملة',
+                'اختر الخيارات المصنوعة من الحبوب الكاملة مثل الأرز البني والشوفان وخبز القمح الكامل.',
                 'images/vegetable-curry-with-rice-removebg-preview.png',
               ),
               _buildDietItem(
-                'Lean Proteins',
-                'Include lean proteins such as chicken, fish, beans, and legumes in your diet.',
+                'البروتينات الخالية من الدهون',
+                'اشمل البروتينات الخالية من الدهون مثل الدجاج والأسماك والفاصوليا والبقوليات في نظامك الغذائي.',
                 'images/Lean-Protein-Sources-530x377.jpg',
               ),
               _buildDietItem(
-                'Low-Fat Dairy',
-                'Opt for low-fat or fat-free dairy products like milk, yogurt, and cheese.',
+                'منتجات الألبان قليلة الدسم',
+                'اختر منتجات الألبان قليلة الدسم أو الخالية من الدسم مثل الحليب والزبادي والجبن.',
                 'images/fats-and-oil-in-food.jpg',
               ),
               _buildDietItem(
-                'Reduce Sodium',
-                'Limit the intake of salty foods and avoid adding extra salt to meals.',
+                'تقليل الصوديوم',
+                'قلل من تناول الأطعمة المالحة وتجنب إضافة الملح الزائد إلى الوجبات.',
                 'images/lower_sodium_intake.jpg',
               ),
               _buildDietItem(
-                'Healthy Fats',
-                'Incorporate healthy fats from sources like avocados, nuts, seeds, and olive oil.',
+                'الدهون الصحية',
+                'اشمل الدهون الصحية من مصادر مثل الأفوكادو والمكسرات والبذور وزيت الزيتون.',
                 'images/fats-and-oil-in-food.jpg',
               ),
               _buildDietItem(
-                'Limit Alcohol and Caffeine',
-                'Reduce the consumption of alcohol and caffeine as they can affect blood pressure.',
+                'الحد من الكحول والكافيين',
+                'قلل من استهلاك الكحول والكافيين حيث يمكن أن يؤثرا على ضغط الدم.',
                 'images/Caffeine_share.jpg',
               ),
               const SizedBox(height: 20),
               Text(
-                'Remember to consult with a healthcare professional or a dietitian before making any significant changes to your diet.',
+                'تذكر استشارة أخصائي الرعاية الصحية أو أخصائي التغذية قبل إجراء أي تغييرات كبيرة في نظامك الغذائي.',
                 style: TextStyle(
                   fontSize: 16,
                   fontStyle: FontStyle.italic,
@@ -162,7 +151,7 @@ class BloodPressureDietPage extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Tips for Managing High Blood Pressure',
+          'نصائح لإدارة ارتفاع ضغط الدم',
           style: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,
@@ -171,23 +160,23 @@ class BloodPressureDietPage extends StatelessWidget {
         ),
         const SizedBox(height: 10),
         _buildTipItem(
-          'Stay Active',
-          'Engage in regular physical activity like walking, jogging, or swimming for at least 30 minutes most days of the week.',
+          'ابق نشيطًا',
+          'اشترك في نشاط بدني منتظم مثل المشي أو الجري أو السباحة لمدة 30 دقيقة على الأقل معظم أيام الأسبوع.',
           'images/stay_active.jpg',
         ),
         _buildTipItem(
-          'Monitor Blood Pressure',
-          'Regularly check your blood pressure to keep track of your progress and adjust your lifestyle as needed.',
+          'مراقبة ضغط الدم',
+          'تحقق من ضغط الدم بانتظام لمتابعة تقدمك وضبط نمط حياتك حسب الحاجة.',
           'images/blood-pressure-monitor-cuff-1.jpg',
         ),
         _buildTipItem(
-          'Manage Stress',
-          'Practice relaxation techniques such as meditation, deep breathing, and yoga to reduce stress levels.',
+          'إدارة التوتر',
+          'مارس تقنيات الاسترخاء مثل التأمل والتنفس العميق واليوغا لتقليل مستويات التوتر.',
           'images/managr_stress.jpg',
         ),
         _buildTipItem(
-          'Quit Smoking',
-          'If you smoke, seek help to quit. Smoking increases blood pressure and heart disease risk.',
+          'الإقلاع عن التدخين',
+          'إذا كنت تدخن، ابحث عن المساعدة للإقلاع. يزيد التدخين من ضغط الدم وخطر الإصابة بأمراض القلب.',
           'images/quit-smoking.jpg',
         ),
       ],

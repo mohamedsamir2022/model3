@@ -15,175 +15,174 @@ class _FoodPlanPageState extends State<FoodPlanPage> {
 
   List<Map<String, dynamic>> meals = [
     {
-      "meal": "Breakfast",
+      "meal": "فطور",
       "description":
-          "Oatmeal with fresh berries, sliced almonds, and a drizzle of honey",
+          "دقيق الشوفان مع التوت الطازج، اللوز المقطع، وقليل من العسل",
       "calories": 300,
       "protein": 5,
       "carbs": 55,
       "fat": 7
     },
     {
-      "meal": "Snack",
-      "description": "Greek yogurt with honey and a handful of granola",
+      "meal": "وجبة خفيفة",
+      "description": "زبادي يوناني مع العسل وقليل من الجرانولا",
       "calories": 150,
       "protein": 10,
       "carbs": 15,
       "fat": 3
     },
     {
-      "meal": "Lunch",
+      "meal": "غداء",
       "description":
-          "Grilled chicken breast served with quinoa, mixed greens, cherry tomatoes, and a light vinaigrette",
+          "صدر دجاج مشوي يقدم مع الكينوا، الخضار المختلطة، الطماطم الكرزية، وخل خفيف",
       "calories": 450,
       "protein": 40,
       "carbs": 30,
       "fat": 15
     },
     {
-      "meal": "Snack",
-      "description": "Apple slices paired with almond butter",
+      "meal": "وجبة خفيفة",
+      "description": "شرائح تفاح مع زبدة اللوز",
       "calories": 200,
       "protein": 4,
       "carbs": 25,
       "fat": 10
     },
     {
-      "meal": "Dinner",
+      "meal": "عشاء",
       "description":
-          "Salmon fillet seasoned with herbs and lemon, accompanied by roasted vegetables (zucchini, bell peppers, and carrots)",
+          "فيليه سلمون متبل بالأعشاب والليمون مع خضروات مشوية (كوسا، فلفل، وجزر)",
       "calories": 500,
       "protein": 35,
       "carbs": 20,
       "fat": 25
     },
     {
-      "meal": "Breakfast",
+      "meal": "فطور",
       "description":
-          "Scrambled eggs with diced vegetables (bell peppers, spinach, and onions) served on whole wheat toast",
+          "بيض مخفوق مع الخضروات (فلفل، سبانخ، وبصل) يقدم على توست قمح كامل",
       "calories": 350,
       "protein": 20,
       "carbs": 30,
       "fat": 15
     },
     {
-      "meal": "Snack",
+      "meal": "وجبة خفيفة",
       "description":
-          "Mixed nuts (almonds, walnuts, and cashews) with dried fruits (raisins and apricots)",
+          "مكسرات متنوعة (لوز، جوز، وكاجو) مع فواكه مجففة (زبيب ومشمش)",
       "calories": 250,
       "protein": 8,
       "carbs": 20,
       "fat": 18
     },
     {
-      "meal": "Lunch",
+      "meal": "غداء",
       "description":
-          "Turkey and avocado wrap with whole wheat tortilla, fresh spinach, and diced tomatoes",
+          "راب الديك الرومي والأفوكادو مع تورتيلا قمح كامل، سبانخ طازج، وطماطم مقطعة",
       "calories": 400,
       "protein": 30,
       "carbs": 40,
       "fat": 15
     },
     {
-      "meal": "Snack",
-      "description": "Carrot sticks served with hummus dip",
+      "meal": "وجبة خفيفة",
+      "description": "شرائح جزر مع حمص",
       "calories": 150,
       "protein": 4,
       "carbs": 20,
       "fat": 8
     },
     {
-      "meal": "Dinner",
+      "meal": "عشاء",
       "description":
-          "Grilled steak seasoned with garlic and herbs, served with a side of sweet potato mash and steamed asparagus",
+          "شريحة لحم مشوية متبلة بالثوم والأعشاب، تقدم مع بطاطا حلوة مهروسة وهليون مطهو على البخار",
       "calories": 600,
       "protein": 45,
       "carbs": 40,
       "fat": 25
     },
     {
-      "meal": "Breakfast",
+      "meal": "فطور",
       "description":
-          "Smoothie bowl made with blended mixed berries, topped with granola, chia seeds, and a drizzle of almond butter",
+          "وعاء سموثي مصنوع من التوت المختلط المهروس، ويعلوه جرانولا، بذور الشيا، وقليل من زبدة اللوز",
       "calories": 400,
       "protein": 15,
       "carbs": 60,
       "fat": 10
     },
     {
-      "meal": "Snack",
-      "description":
-          "Cheese (cheddar and mozzarella) paired with whole wheat crackers",
+      "meal": "وجبة خفيفة",
+      "description": "جبن (شيدر وموزاريلا) مع بسكويت قمح كامل",
       "calories": 300,
       "protein": 12,
       "carbs": 25,
       "fat": 18
     },
     {
-      "meal": "Lunch",
+      "meal": "غداء",
       "description":
-          "Quinoa salad with chickpeas, cherry tomatoes, cucumbers, red onions, and a lemon-herb dressing",
+          "سلطة كينوا مع حمص، طماطم كرزية، خيار، بصل أحمر، وتتبيلة ليمون وأعشاب",
       "calories": 450,
       "protein": 20,
       "carbs": 60,
       "fat": 15
     },
     {
-      "meal": "Snack",
-      "description": "Banana with a spread of natural peanut butter",
+      "meal": "وجبة خفيفة",
+      "description": "موز مع زبدة الفول السوداني الطبيعية",
       "calories": 250,
       "protein": 6,
       "carbs": 30,
       "fat": 12
     },
     {
-      "meal": "Dinner",
+      "meal": "عشاء",
       "description":
-          "Baked chicken thighs seasoned with paprika and thyme, served with brown rice and sautéed green beans",
+          "أفخاذ دجاج مشوية متبلة بالبابريكا والزعتر، تقدم مع أرز بني وفاصوليا خضراء مقلية",
       "calories": 550,
       "protein": 40,
       "carbs": 45,
       "fat": 20
     },
     {
-      "meal": "Breakfast",
+      "meal": "فطور",
       "description":
-          "Avocado toast on whole grain bread, topped with sliced tomatoes and a sprinkle of feta cheese",
+          "توست الأفوكادو على خبز الحبوب الكاملة مع شرائح الطماطم ورش جبنة فيتا",
       "calories": 350,
       "protein": 10,
       "carbs": 30,
       "fat": 20
     },
     {
-      "meal": "Snack",
+      "meal": "وجبة خفيفة",
       "description":
-          "Trail mix with a mix of dried cranberries, almonds, pumpkin seeds, and dark chocolate chips",
+          "مزيج المسارات مع توت بري مجفف، لوز، بذور اليقطين، ورقائق الشوكولاتة الداكنة",
       "calories": 200,
       "protein": 5,
       "carbs": 25,
       "fat": 10
     },
     {
-      "meal": "Lunch",
+      "meal": "غداء",
       "description":
-          "Spinach and feta stuffed chicken breast served with quinoa and roasted Brussels sprouts",
+          "صدر دجاج محشو بالسبانخ والفيتا يقدم مع الكينوا وكرنب بروكسل المشوي",
       "calories": 500,
       "protein": 45,
       "carbs": 30,
       "fat": 25
     },
     {
-      "meal": "Snack",
-      "description": "Cottage cheese with sliced peaches",
+      "meal": "وجبة خفيفة",
+      "description": "جبنة قريش مع شرائح الخوخ",
       "calories": 150,
       "protein": 12,
       "carbs": 20,
       "fat": 5
     },
     {
-      "meal": "Dinner",
+      "meal": "عشاء",
       "description":
-          "Pasta with marinara sauce, topped with grilled shrimp, and a side of garlic bread",
+          "باستا مع صلصة المارينارا، يعلوها جمبري مشوي، وجانب من خبز الثوم",
       "calories": 600,
       "protein": 30,
       "carbs": 80,
@@ -198,7 +197,7 @@ class _FoodPlanPageState extends State<FoodPlanPage> {
         totalCalories += meal['calories'];
       });
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('${meal['meal']} added to your plan!')),
+        SnackBar(content: Text('${meal['meal']} أضيفت إلى خطتك!')),
       );
     } else {
       _showCalorieLimitAlert();
@@ -211,7 +210,7 @@ class _FoodPlanPageState extends State<FoodPlanPage> {
       totalCalories -= meal['calories'];
     });
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('${meal['meal']} removed from your plan!')),
+      SnackBar(content: Text('${meal['meal']} أزيلت من خطتك!')),
     );
   }
 
@@ -220,12 +219,12 @@ class _FoodPlanPageState extends State<FoodPlanPage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text("Calorie Limit Exceeded"),
+          title: const Text("تجاوزت الحد الأقصى للسعرات الحرارية"),
           content: const Text(
-              "Adding this meal will exceed your recommended calorie intake."),
+              "إضافة هذه الوجبة ستتجاوز حد السعرات الحرارية الموصى به."),
           actions: [
             TextButton(
-              child: const Text("OK"),
+              child: const Text("موافق"),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -244,7 +243,7 @@ class _FoodPlanPageState extends State<FoodPlanPage> {
           children: [
             Icon(Icons.restaurant_menu),
             SizedBox(width: 10),
-            Text("Recommended Plan"),
+            Text("الخطة الموصى بها"),
           ],
         ),
         backgroundColor: Colors.green,
@@ -268,7 +267,7 @@ class _FoodPlanPageState extends State<FoodPlanPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Your recommended daily calorie intake is ${widget.recommendedCalories.toStringAsFixed(2)} calories.",
+                  "الحد اليومي الموصى به للسعرات الحرارية هو ${widget.recommendedCalories.toStringAsFixed(2)} سعرة حرارية.",
                   style: const TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -277,7 +276,7 @@ class _FoodPlanPageState extends State<FoodPlanPage> {
                 ),
                 const SizedBox(height: 5),
                 const Text(
-                  "Recommended Food Plan:",
+                  "الخطة الغذائية الموصى بها:",
                   style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
@@ -340,7 +339,7 @@ class _FoodPlanPageState extends State<FoodPlanPage> {
               Text(meal['description'], style: const TextStyle(fontSize: 16)),
               const SizedBox(height: 5),
               Text(
-                "Protein: ${meal['protein']}g, Carbs: ${meal['carbs']}g, Fat: ${meal['fat']}g",
+                "بروتين: ${meal['protein']}غ، كربوهيدرات: ${meal['carbs']}غ، دهون: ${meal['fat']}غ",
                 style: const TextStyle(color: Colors.black54),
               ),
             ],
@@ -349,7 +348,7 @@ class _FoodPlanPageState extends State<FoodPlanPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "${meal['calories']} cal",
+                "${meal['calories']} سعرة",
                 style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
@@ -382,7 +381,7 @@ class _FoodPlanPageState extends State<FoodPlanPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
-                "Remaining Calories:",
+                "السعرات الحرارية المتبقية:",
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
@@ -391,7 +390,7 @@ class _FoodPlanPageState extends State<FoodPlanPage> {
               ),
               const SizedBox(height: 5),
               Text(
-                "${remainingCalories.toStringAsFixed(2)} calories",
+                "${remainingCalories.toStringAsFixed(2)} سعرة حرارية",
                 style: const TextStyle(fontSize: 16, color: Colors.white),
               ),
             ],
